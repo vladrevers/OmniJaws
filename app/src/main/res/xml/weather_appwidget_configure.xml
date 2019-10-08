@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2017 The OmniROM Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.	If not, see <http://www.gnu.org/licenses/>.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/weather_widget">
+
+    <ListPreference
+        android:key="weather_icon_pack"
+        android:title="@string/weather_icon_pack_title" />
+
+    <CheckBoxPreference
+        android:key="show_background"
+        android:title="@string/show_background_title" />
+
+    <CheckBoxPreference
+        android:key="with_forecast"
+        android:title="@string/with_forecast_title"
+        android:defaultValue="true" />
+
+    <PreferenceScreen
+        android:summary="@string/weather_config_summary"
+        android:title="@string/weather_config_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetClass="org.omnirom.omnijaws.SettingsActivityService"
+            android:targetPackage="org.omnirom.omnijaws" />
+    </PreferenceScreen>
+
+    <Preference
+        android:persistent="false"
+        android:widgetLayout="@layout/preference_button" />
+
+</PreferenceScreen>

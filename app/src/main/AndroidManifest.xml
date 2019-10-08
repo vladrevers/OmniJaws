@@ -1,0 +1,95 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.omnirom.omnijaws"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <permission android:name="org.omnirom.omnijaws.READ_WEATHER" />
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@drawable/omnirom_logo" >
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true"
+            android:label="@string/settings_title"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.DeviceDefault.Settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SettingsActivityService"
+            android:exported="true"
+            android:label="@string/settings_title"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.DeviceDefault.Settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".WeatherService"
+            android:exported="true" />
+
+        <provider
+            android:name=".WeatherContentProvider"
+            android:authorities="org.omnirom.omnijaws.provider"
+            android:exported="true"
+            android:readPermission="org.omnirom.omnijaws.READ_WEATHER" />
+
+        <receiver android:name=".SystemReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- name is used a prefix +"_" for images e.g. weather_<condition_id>
+             weather_foo_<condition_id> -->
+        <activity android:name=".outline"
+                android:label="Outline" >
+            <intent-filter>
+                <action android:name="org.omnirom.WeatherIconPack" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".widget.WeatherAppWidgetProvider"
+            android:label="@string/weather_widget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+                <action android:name="org.omnirom.omnijaws.WEATHER_UPDATE" />
+                <action android:name="org.omnirom.omnijaws.WEATHER_ERROR" />
+                <action android:name="org.omnirom.omnijaws.widget.WEATHER_REFRESH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/weather_appwidget" />
+        </receiver>
+
+        <activity
+            android:name=".widget.WeatherAppWidgetConfigure"
+            android:theme="@android:style/Theme.DeviceDefault.Settings">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

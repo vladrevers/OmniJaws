@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="org.omnirom.omnijaws.SettingsActivityService">
+    <item
+        android:id="@+id/playstore"
+        android:title="@string/weather_icon_pack_playstore"
+        android:showAsAction="never" />
+</menu>
