@@ -41,15 +41,12 @@ public class Config {
         SharedPreferences prefs = PreferenceManager
                 .getDefaultSharedPreferences(context);
 
-        /* if (prefs.getString(PREF_KEY_PROVIDER, "0").equals("1")) {
-            return new GismeteoProvider(context);
-        }
-        return new OpenWeatherMapProvider(context); */
-
         switch (prefs.getString(PREF_KEY_PROVIDER, "0"))
         {
             case "1":
                 return new GismeteoProvider(context);
+            case "2":
+                return new AccuWeatherProvider(context);
             default:
                 return new OpenWeatherMapProvider(context);
         }
@@ -64,10 +61,11 @@ public class Config {
         {
             case "1":
                 return "Gismeteo";
+            case "2":
+                return "AccuWeather";
             default:
                 return "OpenWeatherMap";
         }
-        //return provider.equals("1") ? "Gismeteo" : "OpenWeatherMap";
     }
 
     public static boolean isMetric(Context context) {

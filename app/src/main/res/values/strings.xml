@@ -5,6 +5,7 @@
     <string name="units_title">Unit</string>
     <string name="provider_openweathermap" translatable="false">OpenWeatherMap</string>
     <string name="provider_gismeteo" translatable="false">Gismeteo</string>
+    <string name="provider_accuweather" translatable="false">AccuWeather</string>
     <string name="weather_progress_title">Verifying location</string>
     <string name="weather_select_location">Select location</string>
     <string name="custom_location_title">Custom location</string>
