@@ -50,7 +50,7 @@ public class GismeteoProvider extends AbstractWeatherProvider {
         try {
             XmlPullParserFactory parserFactory = XmlPullParserFactory.newInstance();
             XmlPullParser parser = parserFactory.newPullParser();
-            ArrayList<WeatherInfo.WeatherLocation> results = new ArrayList<WeatherInfo.WeatherLocation>();
+            ArrayList<WeatherInfo.WeatherLocation> results = new ArrayList<>();
             parser.setInput(new StringReader(response));
 
             while (parser.getEventType() != XmlPullParser.END_DOCUMENT) {
@@ -176,7 +176,6 @@ public class GismeteoProvider extends AbstractWeatherProvider {
         try {
             XmlPullParserFactory parserFactory = XmlPullParserFactory.newInstance();
             XmlPullParser parser = parserFactory.newPullParser();
-            ArrayList<WeatherInfo.WeatherLocation> results = new ArrayList<WeatherInfo.WeatherLocation>();
             parser.setInput(new StringReader(response));
 
             while (parser.getEventType() != XmlPullParser.END_DOCUMENT) {
@@ -199,13 +198,13 @@ public class GismeteoProvider extends AbstractWeatherProvider {
     }
 
     private ArrayList<DayForecast> parseDayForecast(XmlPullParser parser, boolean metric) {
-        ArrayList<DayForecast> result = new ArrayList<DayForecast>();
+        ArrayList<DayForecast> result = new ArrayList<>();
         boolean firstDay = true;
         float dayTempMin = 0;
         float dayTempMax = 0;
 
         try {
-            while (result.size() < 5 || parser.getEventType() != XmlPullParser.END_DOCUMENT) {
+            while (result.size() < 5 && parser.getEventType() != XmlPullParser.END_DOCUMENT) {
                 if (parser.getEventType() == XmlPullParser.START_TAG
                         && parser.getName().equals("day")) {
                     if (!firstDay) {
@@ -408,7 +407,7 @@ public class GismeteoProvider extends AbstractWeatherProvider {
             case "n.c2.s3.st":
             case "n.c3.s3.st":
             case "s3.st.mist":
-                return 38; // scattered thunderstorms
+                return 39; // scattered thunderstorms
 
         }
 
