@@ -27,7 +27,7 @@ public class AccuWeatherProvider extends AbstractWeatherProvider {
     private static final String URL_WEATHER =
             "http://api.accuweather.com/currentconditions/v1/%s?apikey=%s&language=%s&details=true";
     private static final String URL_FORECAST =
-            "http://api.accuweather.com/forecasts/v1/daily/5day/%s?apikey=%s&language=%s";
+            "http://api.accuweather.com/forecasts/v1/daily/5day/%s?apikey=%s&language=%s&metric=%s";
     private static final String URL_LOCATION_INFO =
             "http://api.accuweather.com/locations/v1/%s?apikey=%s&language=%s";
 
@@ -99,7 +99,7 @@ public class AccuWeatherProvider extends AbstractWeatherProvider {
         }
         log(TAG, "Condition URL = " + conditionUrl + " returning a response of " + conditionResponse);
 
-        String forecastUrl = String.format(URL_FORECAST, id, getAPIKey(), getLanguage());
+        String forecastUrl = String.format(URL_FORECAST, id, getAPIKey(), getLanguage(), String.valueOf(metric));
         String forecastResponse = retrieve(forecastUrl);
         if (forecastResponse == null) {
             return null;
@@ -169,8 +169,8 @@ public class AccuWeatherProvider extends AbstractWeatherProvider {
             try {
                 JSONObject forecast = forecasts.getJSONObject(i);
                 item = new DayForecast(
-                        /* low */ sanitizeTemperature(forecast.getJSONObject("Temperature").getJSONObject("Minimum").getDouble("Value"), metric),
-                        /* high */ sanitizeTemperature(forecast.getJSONObject("Temperature").getJSONObject("Maximum").getDouble("Value"), metric),
+                        /* low */ (float) forecast.getJSONObject("Temperature").getJSONObject("Minimum").getDouble("Value"),
+                        /* high */ (float) forecast.getJSONObject("Temperature").getJSONObject("Maximum").getDouble("Value"),
                         /* condition */ forecast.getJSONObject("Day").getString("IconPhrase"),
                         /* conditionCode */ mapWeatherIconToCode(forecast.getJSONObject("Day").getInt("Icon")),
                         forecast.getString("Date"),
@@ -281,14 +281,6 @@ public class AccuWeatherProvider extends AbstractWeatherProvider {
             default:
                 return -1;
         }
-    }
-
-    private static float sanitizeTemperature(double tempToC, boolean metric) {
-        float value = (float) tempToC;
-        if (metric) {
-            value = (value - 32) * 5 / 9;
-        }
-        return value;
     }
 
     private String getAPIKey() {
