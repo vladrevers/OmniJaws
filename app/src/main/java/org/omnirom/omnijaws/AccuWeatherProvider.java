@@ -14,6 +14,8 @@ import org.omnirom.omnijaws.WeatherInfo.DayForecast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
@@ -27,7 +29,7 @@ public class AccuWeatherProvider extends AbstractWeatherProvider {
     private static final String URL_WEATHER =
             "http://api.accuweather.com/currentconditions/v1/%s?apikey=%s&language=%s&details=true";
     private static final String URL_FORECAST =
-            "http://api.accuweather.com/forecasts/v1/daily/5day/%s?apikey=%s&language=%s&metric=%s";
+            "http://api.accuweather.com/forecasts/v1/daily/10day/%s?apikey=%s&language=%s&metric=%s";
     private static final String URL_LOCATION_INFO =
             "http://api.accuweather.com/locations/v1/%s?apikey=%s&language=%s";
 
@@ -158,13 +160,19 @@ public class AccuWeatherProvider extends AbstractWeatherProvider {
     }
 
     private ArrayList<DayForecast> parseForecasts(JSONArray forecasts, boolean metric) throws JSONException {
-        ArrayList<DayForecast> result = new ArrayList<>(forecasts.length());
+        ArrayList<DayForecast> result = new ArrayList<>(5);
         int count = forecasts.length();
 
         if (count == 0) {
             throw new JSONException("Empty forecasts array");
         }
-        for (int i = 0; i < count; i++) {
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, -1);
+        String yesterday = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime());
+        int startIndex = forecasts.getJSONObject(0).getString("Date").contains(yesterday) ? 1 : 0;
+
+        for (int i = startIndex; i < count && result.size() < 5; i++) {
             DayForecast item;
             try {
                 JSONObject forecast = forecasts.getJSONObject(i);
