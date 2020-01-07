@@ -257,6 +257,8 @@ public class AccuWeatherProvider extends AbstractWeatherProvider {
             case 22:
             case 23:
                 return 16;
+            case 24:
+                return 32;
             case 25:
                 return 18;
             case 26:
