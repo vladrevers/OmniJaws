@@ -47,6 +47,8 @@ public class Config {
                 return new GismeteoProvider(context);
             case "2":
                 return new AccuWeatherProvider(context);
+            case "3":
+                return new METNorwayProvider(context);
             default:
                 return new OpenWeatherMapProvider(context);
         }
@@ -63,6 +65,8 @@ public class Config {
                 return "Gismeteo";
             case "2":
                 return "AccuWeather";
+            case "3":
+                return "MET Norway";
             default:
                 return "OpenWeatherMap";
         }
