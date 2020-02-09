@@ -46,4 +46,5 @@
     <string name="weather_config_summary"></string>
     <string name="omnijaws_service_error_marker" translatable="false">*</string>
     <string name="with_forecast_title">With 4-day forecast and details</string>
+    <string name="omnijaws_city_unkown">Unknown</string>
 </resources>

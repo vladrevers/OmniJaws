@@ -55,4 +55,5 @@
   <string name="omnijaws_current_text">Сейчас</string>
   <string name="show_background_title">Стиль фона</string>
   <string name="weather_config_title">Параметры службы</string>
+  <string name="omnijaws_city_unkown">Неизвестно</string>
 </resources>

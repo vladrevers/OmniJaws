@@ -8,6 +8,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
 import android.util.Log;
+import android.text.TextUtils;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.params.CoreProtocolPNames;
@@ -115,9 +116,14 @@ public class METNorwayProvider extends AbstractWeatherProvider {
                 windSpeed *= 3.6;
             }
 
+            String city = getNameLocality(coordinates);
+            if (TextUtils.isEmpty(city)) {
+                city = mContext.getResources().getString(R.string.omnijaws_city_unkown);
+            }
+
             WeatherInfo w = new WeatherInfo(mContext,
                     /* id */ coordinates,
-                    /* cityId */ getNameLocality(coordinates),
+                    /* cityId */ city,
                     /* condition */ timeseries.getJSONObject(0).getJSONObject("data").getJSONObject("next_1_hours").getJSONObject("summary").getString("weather"),
                     /* conditionCode */ arrayWeatherIconToCode[getPriorityCondition(timeseries.getJSONObject(0).getJSONObject("data").getJSONObject("next_1_hours").getJSONObject("summary").getString("symbol_code"))],
                     /* temperature */ convertTemperature(weather.getDouble("air_temperature"), metric),
@@ -360,7 +366,7 @@ public class METNorwayProvider extends AbstractWeatherProvider {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "Unknown";
+        return null;
     }
 
     private static float convertTemperature(double value, boolean metric) {
