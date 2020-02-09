@@ -108,8 +108,7 @@ public class METNorwayProvider extends AbstractWeatherProvider {
 
         try {
             JSONArray timeseries = new JSONObject(response).getJSONObject("properties").getJSONArray("timeseries");
-            JSONObject weather = timeseries.getJSONObject(0).getJSONObject("details").optJSONObject("instant");
-            String conditionSummary = timeseries.getJSONObject(0).getJSONObject("summary").getJSONObject("next_1_hours").getString("symbol_code");
+            JSONObject weather = timeseries.getJSONObject(0).getJSONObject("data").getJSONObject("instant").getJSONObject("details");
 
             double windSpeed = weather.getDouble("wind_speed");
             if (metric) {
@@ -119,8 +118,8 @@ public class METNorwayProvider extends AbstractWeatherProvider {
             WeatherInfo w = new WeatherInfo(mContext,
                     /* id */ coordinates,
                     /* cityId */ getNameLocality(coordinates),
-                    /* condition */ conditionSummary,
-                    /* conditionCode */ arrayWeatherIconToCode[getPriorityCondition(conditionSummary)],
+                    /* condition */ timeseries.getJSONObject(0).getJSONObject("data").getJSONObject("next_1_hours").getJSONObject("summary").getString("weather"),
+                    /* conditionCode */ arrayWeatherIconToCode[getPriorityCondition(timeseries.getJSONObject(0).getJSONObject("data").getJSONObject("next_1_hours").getJSONObject("summary").getString("symbol_code"))],
                     /* temperature */ convertTemperature(weather.getDouble("air_temperature"), metric),
                     /* humidity */ (float) weather.getDouble("relative_humidity"),
                     /* wind */ (float) windSpeed,
@@ -169,7 +168,7 @@ public class METNorwayProvider extends AbstractWeatherProvider {
                 String conditionDescription = "";
 
                 while (convertTimeZone(timeseries.getJSONObject(whileIndex).getString("time")).contains(day)) {
-                    double tempI = timeseries.getJSONObject(whileIndex).getJSONObject("details").getJSONObject("instant").getDouble("air_temperature");
+                    double tempI = timeseries.getJSONObject(whileIndex).getJSONObject("data").getJSONObject("instant").getJSONObject("details").getDouble("air_temperature");
 
                     if (tempI > temp_max) {
                         temp_max = tempI;
@@ -178,16 +177,16 @@ public class METNorwayProvider extends AbstractWeatherProvider {
                         temp_min = tempI;
                     }
 
-                    boolean has1Hours = timeseries.getJSONObject(whileIndex).getJSONObject("summary").has("next_1_hours");
+                    boolean has1Hours = timeseries.getJSONObject(whileIndex).getJSONObject("data").has("next_1_hours");
 
                     if ((i == 0 && endDay) || isMorningOrAfternoon(convertTimeZone(timeseries.getJSONObject(whileIndex).getString("time")), has1Hours)) {
                         String stepHours = has1Hours ? "next_1_hours" : "next_6_hours";
 
-                        int stepSymbolCode = getPriorityCondition(timeseries.getJSONObject(whileIndex).getJSONObject("summary").getJSONObject(stepHours).getString("symbol_code"));
+                        int stepSymbolCode = getPriorityCondition(timeseries.getJSONObject(whileIndex).getJSONObject("data").getJSONObject(stepHours).getJSONObject("summary").getString("symbol_code"));
 
                         if (stepSymbolCode > symbolCode) {
                             symbolCode = stepSymbolCode;
-                            conditionDescription = timeseries.getJSONObject(whileIndex).getJSONObject("summary").getJSONObject(stepHours).getString("symbol_code");
+                            conditionDescription = timeseries.getJSONObject(whileIndex).getJSONObject("data").getJSONObject(stepHours).getJSONObject("summary").getString("weather");
                         }
                     }
                     whileIndex++;
