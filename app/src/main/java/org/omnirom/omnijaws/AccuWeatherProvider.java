@@ -224,6 +224,7 @@ public class AccuWeatherProvider extends AbstractWeatherProvider {
     private static int mapWeatherIconToCode(int weatherIcon) {
         switch (weatherIcon) {
             case 1:
+            case 24:
                 return 32;
             case 2:
             case 3:
@@ -240,10 +241,13 @@ public class AccuWeatherProvider extends AbstractWeatherProvider {
             case 11:
                 return 20;
             case 12:
-            case 13:
             case 14:
             case 18:
+            case 39:
                 return 11;
+            case 13:
+            case 40:
+                return 9;
             case 15:
                 return 4;
             case 16:
@@ -257,8 +261,6 @@ public class AccuWeatherProvider extends AbstractWeatherProvider {
             case 22:
             case 23:
                 return 16;
-            case 24:
-                return 32;
             case 25:
                 return 18;
             case 26:
@@ -280,9 +282,6 @@ public class AccuWeatherProvider extends AbstractWeatherProvider {
                 return 29;
             case 38:
                 return 27;
-            case 39:
-            case 40:
-                return 45;
             case 41:
             case 42:
                 return 47;
