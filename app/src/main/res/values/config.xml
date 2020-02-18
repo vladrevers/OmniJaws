@@ -3,5 +3,6 @@
 
 	<string name="owm_api_key" translatable="false" >312ef3f30504e37b9d78e9affff306af</string>
 	<string name="accu_api_key" translatable="false" >srRLeAmTroxPinDG8Aus3Ikl6tLGJd94</string>
+	<string name="darksky_api_key" translatable="false" >58c9b90049cc9bbfe8362abe134ab7f6</string>
 
 </resources>

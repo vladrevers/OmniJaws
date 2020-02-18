@@ -49,6 +49,8 @@ public class Config {
                 return new AccuWeatherProvider(context);
             case "3":
                 return new METNorwayProvider(context);
+            case "4":
+                return new DarkSkyProvider(context);
             default:
                 return new OpenWeatherMapProvider(context);
         }
@@ -67,6 +69,8 @@ public class Config {
                 return "AccuWeather";
             case "3":
                 return "MET Norway";
+            case "4":
+                return "DarkSky";
             default:
                 return "OpenWeatherMap";
         }
