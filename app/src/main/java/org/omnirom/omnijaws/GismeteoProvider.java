@@ -14,7 +14,9 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.StringReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -203,11 +205,15 @@ public class GismeteoProvider extends AbstractWeatherProvider {
         float dayTempMin = 0;
         float dayTempMax = 0;
 
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, -1);
+        String yesterday = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime());
+
         try {
             while (result.size() < 5 && parser.getEventType() != XmlPullParser.END_DOCUMENT) {
                 if (parser.getEventType() == XmlPullParser.START_TAG
                         && parser.getName().equals("day")) {
-                    if (!firstDay) {
+                    if (!firstDay && !parser.getAttributeValue(null, "date").equals(yesterday)) {
 
                         if (metric) {
                             dayTempMin = Float.parseFloat(parser.getAttributeValue(null, "tmin"));
