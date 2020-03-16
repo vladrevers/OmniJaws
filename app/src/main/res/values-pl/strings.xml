@@ -46,7 +46,7 @@
   <string name="service_disabled">Wyłączony</string>
   <string name="service_error">Błąd</string>
   <string name="last_update_time">Data ostatniej aktualizacji</string>
-  <string name="omnijaws_service_unkown">Brak danych o pogodzie</string>
+  <string name="omnijaws_service_unknown">Brak danych o pogodzie</string>
   <string name="omnijaws_service_error">Błąd ładowania danych pogody</string>
   <string name="omnijaws_service_init">Czekam na dane o pogodzie...</string>
   <string name="omnijaws_service_progress">Aktualizowanie...</string>
@@ -55,4 +55,6 @@
   <string name="omnijaws_current_text">Teraz</string>
   <string name="show_background_title">Cień tła</string>
   <string name="weather_config_title">Ustawienia usługi</string>
+  <string name="with_forecast_title">4-dniowa Prognoza i szczegóły</string>
+  <string name="omnijaws_city_unknown">Nieznane</string>
 </resources>

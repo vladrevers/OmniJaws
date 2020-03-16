@@ -46,13 +46,14 @@
   <string name="service_disabled">Deaktivdir</string>
   <string name="service_error">Xəta</string>
   <string name="last_update_time">Son yeniləmə vaxtı</string>
-  <string name="omnijaws_service_unkown">Hava məlumatı yoxdur</string>
+  <string name="omnijaws_service_unknown">Hava məlumatı yoxdur</string>
   <string name="omnijaws_service_error">Hava məlumatı yüklənərkən problem yarandı</string>
-  <string name="omnijaws_service_init">Hava məlumatı üçün gözlənilir...</string>
-  <string name="omnijaws_service_progress">Yenilənir...</string>
+  <string name="omnijaws_service_init">Hava məlumatı üçün gözlənilir…</string>
+  <string name="omnijaws_service_progress">Yenilənir…</string>
   <string name="omnijaws_service_disabled">Servis bağlıdır</string>
   <string name="weather_widget">Hava</string>
   <string name="omnijaws_current_text">İndi</string>
   <string name="show_background_title">Arxaplan kölgəsi</string>
   <string name="weather_config_title">Servis parametrləri</string>
+  <string name="with_forecast_title">4 günlük hava təxmini və təfsilatları</string>
 </resources>

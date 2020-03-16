@@ -46,7 +46,7 @@
   <string name="service_disabled">Deaktivert</string>
   <string name="service_error">Feil</string>
   <string name="last_update_time">Siste oppdateringstidspunkt</string>
-  <string name="omnijaws_service_unkown">Ingen værdata</string>
+  <string name="omnijaws_service_unknown">Ingen værdata</string>
   <string name="omnijaws_service_error">Feil ved lasting av værdata</string>
   <string name="omnijaws_service_init">Venter på værdata...</string>
   <string name="omnijaws_service_progress">Oppdaterer...</string>

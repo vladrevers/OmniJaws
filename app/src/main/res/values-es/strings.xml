@@ -46,7 +46,7 @@
   <string name="service_disabled">Desactivado</string>
   <string name="service_error">Error</string>
   <string name="last_update_time">Última actualización</string>
-  <string name="omnijaws_service_unkown">Sin datos meteorológicos</string>
+  <string name="omnijaws_service_unknown">Sin datos meteorológicos</string>
   <string name="omnijaws_service_error">Error al cargar datos meteorológicos</string>
   <string name="omnijaws_service_init">Esperando datos meteorológicos...</string>
   <string name="omnijaws_service_progress">Actualizando...</string>

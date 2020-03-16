@@ -46,7 +46,7 @@
   <string name="service_disabled">無効</string>
   <string name="service_error">エラー</string>
   <string name="last_update_time">最終更新日時</string>
-  <string name="omnijaws_service_unkown">天気データはありません</string>
+  <string name="omnijaws_service_unknown">天気データはありません</string>
   <string name="omnijaws_service_error">気象データの読み込みに失敗しました</string>
   <string name="omnijaws_service_init">気象データを待機しています</string>
   <string name="omnijaws_service_progress">更新中</string>
@@ -55,4 +55,6 @@
   <string name="omnijaws_current_text">現在</string>
   <string name="show_background_title">背景の影</string>
   <string name="weather_config_title">サービスの設定</string>
+  <string name="with_forecast_title">4日間の天気予報と詳細</string>
+  <string name="omnijaws_city_unknown">不明</string>
 </resources>

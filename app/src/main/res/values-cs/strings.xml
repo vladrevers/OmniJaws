@@ -46,13 +46,15 @@
   <string name="service_disabled">Zakázáno</string>
   <string name="service_error">Chyba</string>
   <string name="last_update_time">Čas poslední aktualizace</string>
-  <string name="omnijaws_service_unkown">Žádné údaje o počasí</string>
+  <string name="omnijaws_service_unknown">Žádné údaje o počasí</string>
   <string name="omnijaws_service_error">Chyba při načítání údajů o počasí</string>
-  <string name="omnijaws_service_init">Čekání na údaje o počasí...</string>
-  <string name="omnijaws_service_progress">Aktualizace...</string>
+  <string name="omnijaws_service_init">Čekání na údaje o počasí…</string>
+  <string name="omnijaws_service_progress">Aktualizace…</string>
   <string name="omnijaws_service_disabled">Služba je zakázána</string>
   <string name="weather_widget">Počasí</string>
   <string name="omnijaws_current_text">Nyní</string>
   <string name="show_background_title">Stín pozadí</string>
   <string name="weather_config_title">Nastavení služby</string>
+  <string name="with_forecast_title">Se 4-denní předpovědí a detaily</string>
+  <string name="omnijaws_city_unknown">Neznámé</string>
 </resources>

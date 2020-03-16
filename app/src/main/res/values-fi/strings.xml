@@ -45,10 +45,10 @@
   <string name="service_disabled">Pois käytöstä</string>
   <string name="service_error">Virhe</string>
   <string name="last_update_time">Viimeisin päivitys</string>
-  <string name="omnijaws_service_unkown">Ei säätietoja</string>
+  <string name="omnijaws_service_unknown">Ei säätietoja</string>
   <string name="omnijaws_service_error">Virhe ladattaessa säätietoja</string>
-  <string name="omnijaws_service_init">Odotetaan säätietoja...</string>
-  <string name="omnijaws_service_progress">Päivitetään...</string>
+  <string name="omnijaws_service_init">Odotetaan säätietoja…</string>
+  <string name="omnijaws_service_progress">Päivitetään…</string>
   <string name="omnijaws_service_disabled">Palvelu ei käytössä</string>
   <string name="weather_widget">Sää</string>
   <string name="omnijaws_current_text">Nyt</string>

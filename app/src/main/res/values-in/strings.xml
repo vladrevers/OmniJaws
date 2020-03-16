@@ -46,7 +46,7 @@
   <string name="service_disabled">Dimatikan</string>
   <string name="service_error">Kesalahan</string>
   <string name="last_update_time">Waktu pembaruan terakhir</string>
-  <string name="omnijaws_service_unkown">Tidak ada data cuaca</string>
+  <string name="omnijaws_service_unknown">Tidak ada data cuaca</string>
   <string name="omnijaws_service_error">Kesalahan memuat data cuaca</string>
   <string name="omnijaws_service_init">Menunggu data cuaca...</string>
   <string name="omnijaws_service_progress">Memperbarui...</string>

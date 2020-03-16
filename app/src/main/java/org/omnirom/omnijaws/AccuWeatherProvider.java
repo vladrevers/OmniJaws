@@ -138,7 +138,8 @@ public class AccuWeatherProvider extends AbstractWeatherProvider {
     }
 
     private String[] getInfoLocation(String id) {
-        String[] keyAndName = {id, "Unknown"};
+        String defaultCityName = mContext.getResources().getString(R.string.omnijaws_city_unknown);
+        String[] keyAndName = {id, defaultCityName};
         String url = String.format(URL_LOCATION_INFO, id, getAPIKey(), getLanguage());
         String response = retrieve(url);
 

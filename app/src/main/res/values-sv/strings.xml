@@ -40,7 +40,7 @@
   <string name="weather_tile_title">Väder</string>
   <string name="weather_icon_pack_playstore">Hitta ikonpaket</string>
   <string name="service_error">Fel</string>
-  <string name="omnijaws_service_unkown">Ingen väderdata</string>
+  <string name="omnijaws_service_unknown">Ingen väderdata</string>
   <string name="omnijaws_service_error">Fel vid laddande av väderdata</string>
   <string name="omnijaws_service_init">Väntar på väderdata...</string>
   <string name="omnijaws_service_progress">Uppdaterar...</string>

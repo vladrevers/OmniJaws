@@ -99,7 +99,7 @@ public class DarkSkyProvider extends AbstractWeatherProvider {
 
             String city = getNamePlace(coordinates);
             if (TextUtils.isEmpty(city)) {
-                city = mContext.getResources().getString(R.string.omnijaws_city_unkown);
+                city = mContext.getResources().getString(R.string.omnijaws_city_unknown);
             }
 
             float wind = (float) conditions.getDouble("windSpeed");

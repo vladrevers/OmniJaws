@@ -46,7 +46,7 @@
   <string name="service_disabled">已關閉</string>
   <string name="service_error">錯誤</string>
   <string name="last_update_time">上次更新時間</string>
-  <string name="omnijaws_service_unkown">無天氣資料</string>
+  <string name="omnijaws_service_unknown">無天氣資料</string>
   <string name="omnijaws_service_error">讀取天氣數據錯誤</string>
   <string name="omnijaws_service_init">正在等待天氣資料……</string>
   <string name="omnijaws_service_progress">更新中……</string>
@@ -55,4 +55,5 @@
   <string name="omnijaws_current_text">現在</string>
   <string name="show_background_title">背景陰影</string>
   <string name="weather_config_title">服務設定</string>
+  <string name="with_forecast_title">4天的預測和詳細資訊</string>
 </resources>

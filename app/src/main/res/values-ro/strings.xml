@@ -46,7 +46,7 @@
   <string name="service_disabled">Dezactivat</string>
   <string name="service_error">Eroare</string>
   <string name="last_update_time">Ultima actualizare</string>
-  <string name="omnijaws_service_unkown">Datele meteo lipsesc</string>
+  <string name="omnijaws_service_unknown">Datele meteo lipsesc</string>
   <string name="omnijaws_service_error">Eroare la încărcarea datelor meteo</string>
   <string name="omnijaws_service_init">Aşteptare date meteo...</string>
   <string name="omnijaws_service_progress">Actualizare...</string>
@@ -55,4 +55,5 @@
   <string name="omnijaws_current_text">Acum</string>
   <string name="show_background_title">Umbră fundal</string>
   <string name="weather_config_title">Setări serviciu</string>
+  <string name="with_forecast_title">Cu 4 zile de prognoză și detalii</string>
 </resources>

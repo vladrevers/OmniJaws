@@ -46,13 +46,14 @@
   <string name="service_disabled">Keelatud</string>
   <string name="service_error">Viga</string>
   <string name="last_update_time">Viimase uuenduse aeg</string>
-  <string name="omnijaws_service_unkown">Ilmateade puudub</string>
+  <string name="omnijaws_service_unknown">Ilmateade puudub</string>
   <string name="omnijaws_service_error">Ilmateate laadimisel esines viga</string>
-  <string name="omnijaws_service_init">Ootan ilmaandmeid...</string>
-  <string name="omnijaws_service_progress">Uuendamine...</string>
+  <string name="omnijaws_service_init">Ootan ilmaandmeid…</string>
+  <string name="omnijaws_service_progress">Uuendamine…</string>
   <string name="omnijaws_service_disabled">Teenus keelatud</string>
   <string name="weather_widget">Ilm</string>
   <string name="omnijaws_current_text">Nüüd</string>
   <string name="show_background_title">Taustavari</string>
   <string name="weather_config_title">Teenuse seaded</string>
+  <string name="with_forecast_title">Nelja päeva ennustuse ja andmetega</string>
 </resources>

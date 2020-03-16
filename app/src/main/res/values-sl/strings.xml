@@ -42,7 +42,11 @@
   <string name="interval_12_hour">12 ur</string>
   <string name="weather_tile_title">Vreme</string>
   <string name="weather_icon_pack_title">Paket ikon stanja vremena</string>
+  <string name="weather_icon_pack_playstore">Najdi pakete ikon</string>
   <string name="service_disabled">Onemogočeno</string>
   <string name="service_error">Napaka</string>
   <string name="last_update_time">Čas zadnje posodobitve</string>
+  <string name="omnijaws_service_unknown">Ni podatkov o vremenu</string>
+  <string name="omnijaws_service_error">Napaka pri nalaganju podatkov o vremenu</string>
+  <string name="weather_widget">Vreme</string>
 </resources>

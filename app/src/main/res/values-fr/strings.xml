@@ -20,7 +20,7 @@
   <string name="provider_title">Fournisseur de service météo</string>
   <string name="units_title">Unité</string>
   <string name="weather_progress_title">Vérification de la localisation</string>
-  <string name="weather_select_location">Sélectionner le lieu </string>
+  <string name="weather_select_location">Sélectionner le lieu </string>
   <string name="custom_location_title">Localisation personnalisé</string>
   <string name="weather_custom_location_dialog_title">Entrer le nom d\'une ville, d\'un lieu...</string>
   <string name="weather_custom_location_title">Localisation</string>
@@ -39,14 +39,14 @@
   <string name="interval_2_hour">2 heures</string>
   <string name="interval_4_hour">4 heures</string>
   <string name="interval_6_hour">6 heures</string>
-  <string name="interval_12_hour">12 heures</string>
+  <string name="interval_12_hour">12 heures</string>
   <string name="weather_tile_title">Météo</string>
   <string name="weather_icon_pack_title">Pack d\'icône des conditions météo</string>
   <string name="weather_icon_pack_playstore">Rechercher des packs d\'icônes</string>
   <string name="service_disabled">Désactivé</string>
   <string name="service_error">Erreur</string>
   <string name="last_update_time">Dernière actualisation</string>
-  <string name="omnijaws_service_unkown">Donnée météo indisponible</string>
+  <string name="omnijaws_service_unknown">Donnée météo indisponible</string>
   <string name="omnijaws_service_error">Erreur de chargement des données</string>
   <string name="omnijaws_service_init">En attente de données...</string>
   <string name="omnijaws_service_progress">Actualisation...</string>
@@ -55,4 +55,5 @@
   <string name="omnijaws_current_text">Actuellement</string>
   <string name="show_background_title">Afficher l\'ombre d\'arrière-plan</string>
   <string name="weather_config_title">Paramètres du service</string>
+  <string name="with_forecast_title">Avec les prévisions détaillées pour 4 jours</string>
 </resources>

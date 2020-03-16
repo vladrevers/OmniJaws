@@ -46,7 +46,7 @@
   <string name="service_disabled">Uitgeschakeld</string>
   <string name="service_error">Fout</string>
   <string name="last_update_time">Laatste bijgewerkt</string>
-  <string name="omnijaws_service_unkown">Geen weer gegevens</string>
+  <string name="omnijaws_service_unknown">Geen weer gegevens</string>
   <string name="omnijaws_service_error">Fout bij het laden van weergegevens</string>
   <string name="omnijaws_service_init">Wachten op weergegevens...</string>
   <string name="omnijaws_service_progress">Bijwerken...</string>
