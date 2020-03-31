@@ -116,6 +116,12 @@ public class METNorwayProvider extends AbstractWeatherProvider {
             }
 
             String symbolCode = timeseries.getJSONObject(0).getJSONObject("data").getJSONObject("next_1_hours").getJSONObject("summary").getString("symbol_code");
+            int weatherCode = arrayWeatherIconToCode[getPriorityCondition(symbolCode)];
+
+            // Check Available Night Icon
+            if(symbolCode.contains("_night") && (weatherCode == 30 || weatherCode == 32 || weatherCode == 34)) {
+                weatherCode -= 1;
+            }
 
             String city = getNameLocality(coordinates);
             if (TextUtils.isEmpty(city)) {
@@ -126,7 +132,7 @@ public class METNorwayProvider extends AbstractWeatherProvider {
                     /* id */ coordinates,
                     /* cityId */ city,
                     /* condition */ symbolCode,
-                    /* conditionCode */ arrayWeatherIconToCode[getPriorityCondition(symbolCode)],
+                    /* conditionCode */ weatherCode,
                     /* temperature */ convertTemperature(weather.getDouble("air_temperature"), metric),
                     /* humidity */ (float) weather.getDouble("relative_humidity"),
                     /* wind */ (float) windSpeed,
