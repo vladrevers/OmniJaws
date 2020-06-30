@@ -72,7 +72,7 @@ public class TheWeatherChannelProvider extends AbstractWeatherProvider {
     }
 
     public WeatherInfo getLocationWeather(Location location, boolean metric) {
-        String partLocation = String.format("geocode=%f,%f", location.getLatitude(), location.getLongitude());
+        String partLocation = String.format(Locale.US, "geocode=%f,%f", location.getLatitude(), location.getLongitude());
         return getAnyWeather(partLocation, metric);
     }
 
