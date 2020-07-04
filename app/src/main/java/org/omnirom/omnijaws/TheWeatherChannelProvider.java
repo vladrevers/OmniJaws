@@ -200,8 +200,8 @@ public class TheWeatherChannelProvider extends AbstractWeatherProvider {
 
         try {
             JSONObject jsonResults = new JSONObject(response).getJSONObject("location");
-            keyAndName[0] = jsonResults.getString("placeId");
-            keyAndName[1] = jsonResults.getString("city");
+            keyAndName[0] = jsonResults.optString("placeId", defaultCityId);
+            keyAndName[1] = jsonResults.optString("city", defaultCityName);
         } catch (JSONException e) {
             Log.e(TAG, "Received malformed location info ("
                     + partLocation + ", lang=" + getLanguage() + ")", e);
