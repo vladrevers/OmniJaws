@@ -26,9 +26,9 @@ public class TheWeatherChannelProvider extends AbstractWeatherProvider {
     private static final String URL_INFO_PLACES =
             "https://api.weather.com/v3/location/point?%s&language=%s&format=json&apiKey=%s";
     private static final String URL_CURRENT =
-            "http://api.weather.com/v3/wx/observations/current?%s&language=%s&format=json&units=%s&apiKey=%s";
+            "https://api.weather.com/v3/wx/observations/current?%s&language=%s&format=json&units=%s&apiKey=%s";
     private static final String URL_FORECAST =
-            "http://api.weather.com/v3/wx/forecast/daily/7day?%s&language=%s&format=json&units=%s&apiKey=%s";
+            "https://api.weather.com/v3/wx/forecast/daily/7day?%s&language=%s&format=json&units=%s&apiKey=%s";
 
     public TheWeatherChannelProvider(Context context) {
         super(context);
@@ -59,7 +59,7 @@ public class TheWeatherChannelProvider extends AbstractWeatherProvider {
 
                 location.id = resultID.getString(i);
                 location.city = city;
-                location.countryId = resultCountry.getString(i) + (city.equals(area) ? "" : ", " + area);
+                location.countryId = resultCountry.getString(i) + ((city.equals(area) || area.equals("null")) ? "" : ", " + area);
                 results.add(location);
             }
 
