@@ -53,6 +53,8 @@ public class Config {
                 return new DarkSkyProvider(context);
             case "5":
                 return new TheWeatherChannelProvider(context);
+            case "6":
+                return new YandexWeatherProvider(context);
             default:
                 return new OpenWeatherMapProvider(context);
         }
@@ -75,6 +77,8 @@ public class Config {
                 return "Dark Sky";
             case "5":
                 return "The Weather Channel";
+            case "6":
+                return "Yandex Weather";
             default:
                 return "OpenWeatherMap";
         }
