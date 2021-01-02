@@ -31,7 +31,7 @@
   <string name="settings_title">Настройки</string>
   <string name="auto_update_title">Автоматические обновления</string>
   <string name="unit_metric">Метрическая (\u00b0C)</string>
-  <string name="unit_imperial">Формат (\u00b0F)</string>
+  <string name="unit_imperial">Имперская (\u00b0F)</string>
   <string name="update">Обновить</string>
   <string name="enable_title">Включить</string>
   <string name="update_interval_title">Частота обновления</string>
@@ -53,7 +53,7 @@
   <string name="omnijaws_service_disabled">Служба отключена</string>
   <string name="weather_widget">Погода</string>
   <string name="omnijaws_current_text">Сейчас</string>
-  <string name="show_background_title">Стиль фона</string>
+  <string name="show_background_title">Фоновая тень</string>
   <string name="weather_config_title">Параметры службы</string>
   <string name="with_forecast_title">С прогнозом на 4 дня и деталями</string>
   <string name="omnijaws_city_unknown">Неизвестно</string>

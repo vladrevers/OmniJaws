@@ -31,7 +31,7 @@
   <string name="settings_title">Налаштування</string>
   <string name="auto_update_title">Автоматичні оновлення</string>
   <string name="unit_metric">Метрична (\u00b0C)</string>
-  <string name="unit_imperial">Формат (\u00b0F)</string>
+  <string name="unit_imperial">Імперська (\u00b0F)</string>
   <string name="update">Оновити</string>
   <string name="enable_title">Увімкнути</string>
   <string name="update_interval_title">Інтервал оновлення</string>
