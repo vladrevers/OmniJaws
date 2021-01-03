@@ -84,6 +84,7 @@ public class SettingsActivityService extends PreferenceActivity implements OnPre
 
     private void doLoadPreferences() {
         addPreferencesFromResource(R.xml.settings);
+        getListView().setDividerHeight(0);
         final PreferenceScreen prefScreen = getPreferenceScreen();
         mEnable = (SwitchPreference) findPreference(Config.PREF_KEY_ENABLE);
         mEnable.setChecked(Config.isEnabled(this));
