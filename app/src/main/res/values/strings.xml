@@ -10,6 +10,7 @@
     <string name="provider_darksky" translatable="false">Dark Sky</string>
     <string name="provider_twc" translatable="false">The Weather Channel</string>
     <string name="provider_yandex" translatable="false">Yandex Weather</string>
+    <string name="provider_weatherbit" translatable="false">Weatherbit</string>
     <string name="weather_progress_title">Verifying location</string>
     <string name="weather_select_location">Select location</string>
     <string name="custom_location_title">Custom location</string>

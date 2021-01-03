@@ -5,5 +5,6 @@
 	<string name="accu_api_key" translatable="false" >srRLeAmTroxPinDG8Aus3Ikl6tLGJd94</string>
 	<string name="darksky_api_key" translatable="false" >58c9b90049cc9bbfe8362abe134ab7f6</string>
 	<string name="twc_api_key" translatable="false" >8de2d8b3a93542c9a2d8b3a935a2c909</string>
+	<string name="wbit_api_key" translatable="false" >92000a449398412ca5f32925df9c3143</string>
 
 </resources>

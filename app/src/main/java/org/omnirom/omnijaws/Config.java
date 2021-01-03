@@ -55,6 +55,8 @@ public class Config {
                 return new TheWeatherChannelProvider(context);
             case "6":
                 return new YandexWeatherProvider(context);
+            case "7":
+                return new WeatherbitProvider(context);
             default:
                 return new OpenWeatherMapProvider(context);
         }
@@ -79,6 +81,8 @@ public class Config {
                 return "The Weather Channel";
             case "6":
                 return "Yandex Weather";
+            case "7":
+                return "Weatherbit";
             default:
                 return "OpenWeatherMap";
         }
