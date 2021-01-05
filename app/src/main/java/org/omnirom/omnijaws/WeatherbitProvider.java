@@ -102,7 +102,7 @@ public class WeatherbitProvider extends AbstractWeatherProvider {
             int weatherCode = mapIconToCode(weatherIcon);
 
             // Check Available Night Icon
-            if(weatherIcon.endsWith("n") && (weatherCode == 30 || weatherCode == 32 || weatherCode == 34)) {
+            if(weatherIcon.endsWith("n") && (weatherCode == 28 || weatherCode == 30 || weatherCode == 32 || weatherCode == 34)) {
                 weatherCode -= 1;
             }
 
