@@ -180,6 +180,7 @@ public class METNorwayProvider extends AbstractWeatherProvider {
                 int symbolCode = 0;
                 int scSixToTwelve = 0; // symbolCode next_6_hours in 06:00
                 int scTwelveToEighteen = 0; // symbolCode next_6_hours in 12:00
+                int scSixToEighteen = 0; // symbolCode next_12_hours in 06:00
                 boolean hasFastCondition = false;
                 String conditionDescription = "";
                 String cdSixToEighteen = ""; // SymbolCode in 06:00 or 12:00
@@ -196,8 +197,9 @@ public class METNorwayProvider extends AbstractWeatherProvider {
 
                     boolean hasOneHour = timeseries.getJSONObject(whileIndex).getJSONObject("data").has("next_1_hours");
                     boolean hasSixHours = timeseries.getJSONObject(whileIndex).getJSONObject("data").has("next_6_hours");
+                    boolean hasTwelveHours = timeseries.getJSONObject(whileIndex).getJSONObject("data").has("next_12_hours");
 
-                    hasFastCondition = scSixToTwelve != 0 && scTwelveToEighteen != 0;
+                    hasFastCondition = scSixToEighteen != 0 || (scSixToTwelve != 0 && scTwelveToEighteen != 0);
 
                     if (!hasFastCondition && ((i == 0 && endDay) || isMorningOrAfternoon(convertTimeZone(timeseries.getJSONObject(whileIndex).getString("time")), hasOneHour))) {
                         String stepHours = hasOneHour ? "next_1_hours" : "next_6_hours";
@@ -210,11 +212,16 @@ public class METNorwayProvider extends AbstractWeatherProvider {
                             conditionDescription = stepTextSymbolCode;
                         }
 
-                        if(hasSixHours) {
+                        if(hasSixHours || hasTwelveHours) {
                             if (convertTimeZone(timeseries.getJSONObject(whileIndex).getString("time")).contains("T06")) {
-                                String textSymbolCode = timeseries.getJSONObject(whileIndex).getJSONObject("data").getJSONObject("next_6_hours").getJSONObject("summary").getString("symbol_code");
-                                scSixToTwelve = getPriorityCondition(textSymbolCode);
-                                cdSixToEighteen = textSymbolCode;
+                                String textSymbolCode = timeseries.getJSONObject(whileIndex).getJSONObject("data").getJSONObject(hasTwelveHours ? "next_12_hours" : "next_6_hours").getJSONObject("summary").getString("symbol_code");
+                                if (hasTwelveHours) {
+                                    scSixToEighteen = getPriorityCondition(textSymbolCode);
+                                    cdSixToEighteen = timeseries.getJSONObject(whileIndex).getJSONObject("data").getJSONObject("next_12_hours").getJSONObject("summary").getString("symbol_code");
+                                } else {
+                                    scSixToTwelve = getPriorityCondition(textSymbolCode);
+                                    cdSixToEighteen = textSymbolCode;
+                                }
                             } else if (scSixToTwelve != 0 && convertTimeZone(timeseries.getJSONObject(whileIndex).getString("time")).contains("T12")) {
                                 String textSymbolCode = timeseries.getJSONObject(whileIndex).getJSONObject("data").getJSONObject("next_6_hours").getJSONObject("summary").getString("symbol_code");
                                 scTwelveToEighteen = getPriorityCondition(textSymbolCode);
@@ -229,7 +236,7 @@ public class METNorwayProvider extends AbstractWeatherProvider {
                 }
 
                 if(hasFastCondition) {
-                    symbolCode = (scSixToTwelve > scTwelveToEighteen) ? scSixToTwelve : scTwelveToEighteen;
+                    symbolCode = (scSixToEighteen != 0) ? scSixToEighteen : Math.max(scSixToTwelve, scTwelveToEighteen);
                     conditionDescription = cdSixToEighteen;
                 }
 
