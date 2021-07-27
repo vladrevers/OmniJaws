@@ -9,3 +9,4 @@ Fork OmniJaws (now the main repository has become private) from OmniRom, adapted
 5. The Weather Channel - weather.com
 6. Yandex Weather
 7. Weatherbit
+8. Foreca

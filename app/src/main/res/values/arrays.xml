@@ -26,6 +26,7 @@
         <item>@string/provider_twc</item>
         <item>@string/provider_yandex</item>
         <item>@string/provider_weatherbit</item>
+        <item>@string/provider_foreca</item>
     </string-array>
     <string-array name="provider_values" translatable="false">
         <item>0</item>
@@ -36,6 +37,7 @@
         <item>5</item>
         <item>6</item>
         <item>7</item>
+        <item>8</item>
     </string-array>
     <string-array name="units_entries" translatable="false">
         <item>@string/unit_metric</item>
