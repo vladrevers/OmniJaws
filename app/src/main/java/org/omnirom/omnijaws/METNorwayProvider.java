@@ -173,17 +173,17 @@ public class METNorwayProvider extends AbstractWeatherProvider {
         for (int i = 0; i < 5; i++) {
             DayForecast item;
             try {
-
+                // temp = temperature
                 double temp_max = Double.MIN_VALUE;
                 double temp_min = Double.MAX_VALUE;
                 String day = getDay(i);
                 int symbolCode = 0;
-                int scSixToTwelve = 0; // symbolCode next_6_hours in 06:00
-                int scTwelveToEighteen = 0; // symbolCode next_6_hours in 12:00
-                int scSixToEighteen = 0; // symbolCode next_12_hours in 06:00
-                boolean hasFastCondition = false;
+                int scSixToTwelve = 0; // symbolCode next_6_hours at 06:00
+                int scTwelveToEighteen = 0; // symbolCode next_6_hours at 12:00
+                int scSixToEighteen = 0; // symbolCode next_12_hours at 06:00
+                boolean hasFastCondition = false; // If true, there is no need to calculate "symbolCode" and "conditionDescription".
                 String conditionDescription = "";
-                String cdSixToEighteen = ""; // SymbolCode in 06:00 or 12:00
+                String cdSixToEighteen = ""; // conditionDescription at 06:00 or 12:00
 
                 while (convertTimeZone(timeseries.getJSONObject(whileIndex).getString("time")).contains(day)) {
                     double tempI = timeseries.getJSONObject(whileIndex).getJSONObject("data").getJSONObject("instant").getJSONObject("details").getDouble("air_temperature");
