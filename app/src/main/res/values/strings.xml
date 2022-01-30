@@ -12,6 +12,7 @@
     <string name="provider_yandex" translatable="false">Yandex Weather</string>
     <string name="provider_weatherbit" translatable="false">Weatherbit</string>
     <string name="provider_foreca" translatable="false">Foreca</string>
+    <string name="provider_msn" translatable="false">MSN Weather</string>
     <string name="weather_progress_title">Verifying location</string>
     <string name="weather_select_location">Select location</string>
     <string name="custom_location_title">Custom location</string>

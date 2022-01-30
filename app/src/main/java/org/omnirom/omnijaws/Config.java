@@ -59,6 +59,8 @@ public class Config {
                 return new WeatherbitProvider(context);
             case "8":
                 return new ForecaProvider(context);
+            case "9":
+                return new MsnWeatherProvider(context);
             default:
                 return new OpenWeatherMapProvider(context);
         }
@@ -87,6 +89,8 @@ public class Config {
                 return "Weatherbit";
             case "8":
                 return "Foreca";
+            case "9":
+                return "MSN Weather";
             default:
                 return "OpenWeatherMap";
         }
