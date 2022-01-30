@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class GismeteoProvider extends AbstractWeatherProvider {
-    private static final String TAG = "Gismeteo";
+    private static final String TAG = "GismeteoProvider";
 
     private static final String URL_LOCATION =
             "http://45e30b7f.services.gismeteo.ru/inform-service/a407a91cfcb53e52063b77e9e777f5bd/cities/?search_all=1&with_facts=1&lat_lng=1&count=10&with_tzone=1&lang=%s&startsWith=%s";
@@ -33,12 +33,6 @@ public class GismeteoProvider extends AbstractWeatherProvider {
 
     public GismeteoProvider(Context context) {
         super(context);
-    }
-
-    private static float sanitizeTemperature(String tempToF) {
-        float value = Float.parseFloat(tempToF);
-        value = (value * 9 / 5) + 32;
-        return value;
     }
 
     public List<WeatherInfo.WeatherLocation> getLocations(String input) {
@@ -103,8 +97,7 @@ public class GismeteoProvider extends AbstractWeatherProvider {
 
 
         try {
-            XmlPullParserFactory parserFactory = XmlPullParserFactory.newInstance();
-            XmlPullParser parser = parserFactory.newPullParser();
+            XmlPullParser parser = XmlPullParserFactory.newInstance().newPullParser();
             parser.setInput(new StringReader(forecastResponse));
 
             while (parser.getEventType() != XmlPullParser.END_DOCUMENT) {
@@ -113,9 +106,7 @@ public class GismeteoProvider extends AbstractWeatherProvider {
                         && parser.getName().equals("location")) {
                     locationID = parser.getAttributeValue(null, "id");
                     locationName = parser.getAttributeValue(null, "name");
-                }
-
-                if (parser.getEventType() == XmlPullParser.START_TAG
+                } else if (parser.getEventType() == XmlPullParser.START_TAG
                         && parser.getName().equals("fact")) {
 
                     while (parser.getName() == null || !(parser.getName().equals("values") && parser.getEventType() == XmlPullParser.START_TAG)) {
@@ -136,8 +127,6 @@ public class GismeteoProvider extends AbstractWeatherProvider {
 
                     factHumidity = Float.parseFloat(parser.getAttributeValue(null, "hum"));
                     factWindScale = Integer.parseInt(parser.getAttributeValue(null, "wd"));
-                    Log.d(TAG, Float.toString(factHumidity));
-                    Log.d(TAG, Integer.toString(factWindScale));
                     break;
                 }
                 parser.next();
@@ -418,6 +407,12 @@ public class GismeteoProvider extends AbstractWeatherProvider {
         }
 
         return -1;
+    }
+
+    private static float sanitizeTemperature(String tempToF) {
+        float value = Float.parseFloat(tempToF);
+        value = (value * 9 / 5) + 32;
+        return value;
     }
 
     private int approximateWindDegree(int scale) {
