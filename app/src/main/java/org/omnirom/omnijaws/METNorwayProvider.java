@@ -110,11 +110,6 @@ public class METNorwayProvider extends AbstractWeatherProvider {
             JSONArray timeseries = new JSONObject(response).getJSONObject("properties").getJSONArray("timeseries");
             JSONObject weather = timeseries.getJSONObject(0).getJSONObject("data").getJSONObject("instant").getJSONObject("details");
 
-            double windSpeed = weather.getDouble("wind_speed");
-            if (metric) {
-                windSpeed *= 3.6;
-            }
-
             String symbolCode = timeseries.getJSONObject(0).getJSONObject("data").getJSONObject("next_1_hours").getJSONObject("summary").getString("symbol_code");
             int weatherCode = arrayWeatherIconToCode[getPriorityCondition(symbolCode)];
 
@@ -135,7 +130,7 @@ public class METNorwayProvider extends AbstractWeatherProvider {
                     /* conditionCode */ weatherCode,
                     /* temperature */ convertTemperature(weather.getDouble("air_temperature"), metric),
                     /* humidity */ (float) weather.getDouble("relative_humidity"),
-                    /* wind */ (float) windSpeed,
+                    /* wind */ convertWindSpeed(weather.getDouble("wind_speed"), metric),
                     /* windDir */ (int) weather.getDouble("wind_from_direction"),
                     metric,
                     parseForecasts(timeseries, metric),
@@ -416,6 +411,10 @@ public class METNorwayProvider extends AbstractWeatherProvider {
             value = (value * 1.8) + 32;
         }
         return (float) value;
+    }
+
+    private static float convertWindSpeed(double valueMs, boolean metric) {
+        return (float) (valueMs * (metric ? 3.6 : 2.2369362920544));
     }
 
     public boolean shouldRetry() {
