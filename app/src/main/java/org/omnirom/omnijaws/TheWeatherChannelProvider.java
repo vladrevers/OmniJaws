@@ -225,6 +225,7 @@ public class TheWeatherChannelProvider extends AbstractWeatherProvider {
             case 39:
                 return 40;
             case 40:
+            case 45:
                 return 12;
             case 41:
                 return 42;
