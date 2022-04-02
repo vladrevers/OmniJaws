@@ -45,7 +45,7 @@ public class OpenWeatherMapProvider extends AbstractWeatherProvider {
     private static final int FORECAST_DAYS = 5;
     private static final String PART_COORDINATES = "lat=%f&lon=%f";
     private static final String URL_WEATHER =
-            "https://api.openweathermap.org/data/2.5/onecall?%s&mode=json&units=%s&lang=%s&cnt=" + FORECAST_DAYS + "&appid=%s";
+            "https://api.openweathermap.org/data/2.5/onecall?%s&mode=json&units=%s&lang=%s&cnt=" + FORECAST_DAYS + "&exclude=minutely,hourly,alerts&appid=%s";
     private static final String URL_PLACES =
             "http://api.geonames.org/searchJSON?q=%s&lang=%s&username=omnijaws&maxRows=20";
     private static final String URL_LOCALITY =
