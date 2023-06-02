@@ -22,7 +22,7 @@
         <item>@string/provider_gismeteo</item>
         <item>@string/provider_accuweather</item>
         <item>@string/provider_metnorway</item>
-        <item>@string/provider_darksky</item>
+        <item>@string/provider_pirateweather</item>
         <item>@string/provider_twc</item>
         <item>@string/provider_yandex</item>
         <item>@string/provider_weatherbit</item>

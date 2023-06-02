@@ -50,7 +50,7 @@ public class Config {
             case "3":
                 return new METNorwayProvider(context);
             case "4":
-                return new DarkSkyProvider(context);
+                return new PirateWeatherProvider(context);
             case "5":
                 return new TheWeatherChannelProvider(context);
             case "6":
@@ -78,7 +78,7 @@ public class Config {
             case "3":
                 return "MET Norway";
             case "4":
-                return "Dark Sky";
+                return "Pirate Weather";
             case "5":
                 return "The Weather Channel";
             case "6":

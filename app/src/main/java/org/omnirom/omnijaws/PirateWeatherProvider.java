@@ -22,11 +22,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-public class DarkSkyProvider extends AbstractWeatherProvider {
-    private static final String TAG = "DarkSkyProvider";
+public class PirateWeatherProvider extends AbstractWeatherProvider {
+    private static final String TAG = "PirateWeatherProvider";
 
     private static final String URL_WEATHER =
-            "https://api.darksky.net/forecast/%s/";
+            "https://api.pirateweather.net/forecast/%s/";
     private static final String URL_PLACES =
             "http://api.geonames.org/searchJSON?q=%s&lang=%s&username=omnijaws&isNameRequired=true";
     private static final String PART_COORDINATES =
@@ -35,7 +35,7 @@ public class DarkSkyProvider extends AbstractWeatherProvider {
             "?exclude=hourly,minutely,flags&units=%s&lang=%s";
 
 
-    public DarkSkyProvider(Context context) {
+    public PirateWeatherProvider(Context context) {
         super(context);
     }
 
@@ -220,7 +220,7 @@ public class DarkSkyProvider extends AbstractWeatherProvider {
     }
 
     private String getAPIKey() {
-        return mContext.getResources().getString(R.string.darksky_api_key);
+        return mContext.getResources().getString(R.string.pirateweather_api_key);
     }
 
     public boolean shouldRetry() {

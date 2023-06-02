@@ -5,7 +5,7 @@ Fork OmniJaws (now the main repository has become private) from OmniRom, adapted
 1. Gismeteo
 2. AccuWeather
 3. MET Norway - yr.no (was later added to main repository)
-4. Dark Sky
+4. Pirate Weather (test replacement for discontinued Dark Sky)
 5. The Weather Channel - weather.com
 6. Yandex Weather
 7. Weatherbit
