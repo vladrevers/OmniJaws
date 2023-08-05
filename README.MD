@@ -10,3 +10,10 @@ Fork OmniJaws (now the main repository has become private) from OmniRom, adapted
 6. Yandex Weather
 7. Weatherbit
 8. Foreca
+
+<details>
+  <summary>Apk for Android 13</summary>
+  Contains almost all (except PirateWeather and Weatherbit) providers from the list above, added through recompilation apk from the ROM, so the source code for self-build is not available.
+
+  Link: https://drive.google.com/uc?id=1EP0uAL_nFC9EEFoRjT-YQ217baLu3Avf&export=download
+</details>
