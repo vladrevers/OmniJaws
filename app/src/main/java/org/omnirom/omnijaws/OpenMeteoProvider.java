@@ -30,7 +30,7 @@ public class OpenMeteoProvider extends AbstractWeatherProvider {
     private static final String PART_COORDINATES =
             "latitude=%f&longitude=%f";
     private static final String PART_PARAMETERS =
-            "%s&hourly=relativehumidity_2m&daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&temperature_unit=%s&windspeed_unit=%s&timezone=%s&past_days=1";
+            "%s&hourly=relativehumidity_2m&daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&temperature_unit=%s&windspeed_unit=%s&timezone=%s&past_days=1&models=best_match,gfs_seamless";
 
     public OpenMeteoProvider(Context context) {
         super(context);
@@ -125,9 +125,10 @@ public class OpenMeteoProvider extends AbstractWeatherProvider {
         ArrayList<WeatherInfo.DayForecast> result = new ArrayList<>(5);
 
         JSONArray timeJson = dailyForecasts.getJSONArray("time");
-        JSONArray temperatureMinJson = dailyForecasts.getJSONArray("temperature_2m_min");
-        JSONArray temperatureMaxJson = dailyForecasts.getJSONArray("temperature_2m_max");
-        JSONArray weatherCodeJson = dailyForecasts.getJSONArray("weathercode");
+        JSONArray temperatureMinJson = dailyForecasts.getJSONArray("temperature_2m_min_best_match");
+        JSONArray temperatureMaxJson = dailyForecasts.getJSONArray("temperature_2m_max_best_match");
+        JSONArray weatherCodeJson = dailyForecasts.getJSONArray("weathercode_best_match");
+        JSONArray altWeatherCodeJson = dailyForecasts.getJSONArray("weathercode_gfs_seamless");
         String currentDay = new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Calendar.getInstance().getTime());
 
         int startIndex = 1;
@@ -138,12 +139,16 @@ public class OpenMeteoProvider extends AbstractWeatherProvider {
 
         for (int i = startIndex; i < timeJson.length() && result.size() < 5; i++) {
             WeatherInfo.DayForecast item;
+            int weatherCode = weatherCodeJson.getInt(i);
+            if(weatherCode == 45 || weatherCode == 48)
+                weatherCode = altWeatherCodeJson.getInt(i);
+
             try {
                 item = new WeatherInfo.DayForecast(
                         /* low */ (float) temperatureMinJson.getDouble(i),
                         /* high */ (float) temperatureMaxJson.getDouble(i),
-                        /* condition */ getWeatherDescription(weatherCodeJson.getInt(i)),
-                        /* conditionCode */ getWeatherIcon(weatherCodeJson.getInt(i), true),
+                        /* condition */ getWeatherDescription(weatherCode),
+                        /* conditionCode */ getWeatherIcon(weatherCode, true),
                         timeJson.getString(i),
                         metric);
             } catch (JSONException e) {
@@ -179,7 +184,7 @@ public class OpenMeteoProvider extends AbstractWeatherProvider {
     private static float getCurrentHumidity(JSONObject hourlyJson) throws JSONException {
         String currentHour = new SimpleDateFormat("yyyy-MM-dd'T'HH", Locale.US).format(Calendar.getInstance().getTime());
         JSONArray hourlyTimes = hourlyJson.getJSONArray("time");
-        JSONArray hourlyHumidity = hourlyJson.getJSONArray("relativehumidity_2m");
+        JSONArray hourlyHumidity = hourlyJson.getJSONArray("relativehumidity_2m_best_match");
 
         int currentIndex = 36;
         for (int i = 0; i < hourlyTimes.length(); i++)
