@@ -69,6 +69,27 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".google"
+            android:label="Google" >
+            <intent-filter>
+                <action android:name="org.omnirom.WeatherIconPack" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".google2"
+            android:label="Google New" >
+            <intent-filter>
+                <action android:name="org.omnirom.WeatherIconPack" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".weather_color"
+            android:label="LockClock" >
+            <intent-filter>
+                <action android:name="org.omnirom.WeatherIconPack" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <receiver
             android:name=".widget.WeatherAppWidgetProvider"
