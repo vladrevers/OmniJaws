@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 	<string name="owm_api_key" translatable="false" >312ef3f30504e37b9d78e9affff306af</string>
-	<string name="accu_api_key" translatable="false" >srRLeAmTroxPinDG8Aus3Ikl6tLGJd94</string>
+	<string name="accu_api_key" translatable="false" >466a4a95e2a9483e8f3fc22d9bb2395f</string>
 	<string name="pirateweather_api_key" translatable="false" >Oh1fyStMn1CwXtvN</string>
 	<string name="twc_api_key" translatable="false" >8de2d8b3a93542c9a2d8b3a935a2c909</string>
 	<string name="wbit_api_key" translatable="false" >92000a449398412ca5f32925df9c3143</string>
